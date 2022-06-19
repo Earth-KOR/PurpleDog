@@ -3,6 +3,7 @@ package purpledog.purpledog.TestPackage.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 @Entity
 @Getter
@@ -28,6 +29,10 @@ public class MemberTest2 {
         this.userId = userId;
         this.password = password;
         this.phone = phone;
+        this.address = address;
+    }
+
+    public void updateAddress(String address) {
         this.address = address;
     }
 }

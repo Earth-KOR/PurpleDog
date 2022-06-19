@@ -25,14 +25,16 @@ public class MemberTestController {
         return memberView;
     }
 
-    @PutMapping("update-member")
-    public String updateMember() {
-        return null;
+    @PutMapping("update-member/{id}")
+    public String updateMember(@PathVariable Long id, @RequestParam String updateAddress) throws Exception {
+        MemberTest2 memberTest2 = memberTestService.updateMember(id, updateAddress);
+        String address = memberTest2.getAddress();
+        return address;
     }
 
-    @DeleteMapping("delete-member")
-    public boolean deleteMember() {
-
+    @DeleteMapping("delete-member/{id}")
+    public boolean deleteMember(@PathVariable Long id) throws Exception {
+        memberTestService.deleteMember(id);
         return true;
     }
 }
