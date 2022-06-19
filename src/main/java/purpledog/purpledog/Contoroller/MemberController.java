@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import purpledog.purpledog.DTO.MemberDeleteDto;
 import purpledog.purpledog.DTO.MemberSaveRequestDto;
 import purpledog.purpledog.DTO.MemberUpdatePasswordDto;
+import purpledog.purpledog.Domain.MemberTEst;
+import purpledog.purpledog.Repository.MemberTestRepository;
 import purpledog.purpledog.Service.MemberService;
 
 @Controller
@@ -13,6 +15,7 @@ import purpledog.purpledog.Service.MemberService;
 public class MemberController {
 
     private final MemberService memberService;
+    private final MemberTestRepository memberTestRepository;
 
     @PostMapping("members/create")
     @ResponseBody
@@ -33,5 +36,14 @@ public class MemberController {
     public String deleteMember(
             @RequestBody MemberDeleteDto member) throws Exception {
         return memberService.deleteMember(member);
+    }
+
+    @PostMapping("members2/create")
+    @ResponseBody
+    public boolean saveMember2(
+            @RequestBody MemberSaveRequestDto member) throws Exception {
+        MemberTEst memberTEst = new MemberTEst("!@3", "123");
+        MemberTEst save = memberTestRepository.save(memberTEst);
+        return true;
     }
 }
