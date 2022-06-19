@@ -1,6 +1,7 @@
 spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:9876/pratice?characterEncoding=utf8&autoReconnect=true&useSSL=false
+    // mysql -> 3306 기본값 -> mysql -> database 처음에는 없음 -> create database pratice;
     username: root
     password: password
     driver-class-name: com.mysql.jdbc.Driver
